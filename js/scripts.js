@@ -25,6 +25,12 @@ var pokemonRepository = (function (){
   }
 
 
+  function showDetails(pokemon){
+    pokemonRepository.loadDetails(pokemon).then(function(){
+        showModal(pokemon);
+    });
+  }
+
 
 
 function loadList(){
