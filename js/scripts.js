@@ -41,10 +41,11 @@ function loadList(){
       addListItem(item);
       var pokemon = {
         name: item.name,
-        detailsUrl: item.url
+        detailsUrl: item.url,
+        height: item.height
       }
       add(pokemon);
-      loadDetails(pokemon);
+//      loadDetails(pokemon);
     })
 
     }).catch(function(e){
@@ -55,17 +56,18 @@ function loadList(){
 
 
 function loadDetails(item){
-  var url = item.detailsUrl;
+  var url = item.url;
   return $.ajax(url).then(function(details){
     //Uncomment the line below to log index
-    //console.log('Item details', details);
+    console.log('Item details', details);
     // Now we add the details to the item
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
+    item.weight = details.weight;
     item.types = Object.keys(details.types);
 
     //Uncomment the line below to see types
-    //console.log(item.types);
+    console.log(item.types);
   }).catch(function(e){
     console.error(e);
   });
@@ -74,7 +76,6 @@ function loadDetails(item){
 
 
 function showModal(pokemon){
-  pokemonRepository.loadDetails(pokemon).then(function(){
 
 
   var $modalContainer = $('.modal-container').addClass("is-visible");
@@ -83,16 +84,16 @@ function showModal(pokemon){
   });
 //  var imgElement = $('.pokemonImg').attr('src', item.imageUrl);
   var nameElement = $('.pokemonName').text('Name: ' + pokemon.name);
-  var heightElement = $('.pokemonHeight').text('Height:' + pokemon.height);
-
+  var heightElement = $('.pokemonHeight').text('Height:' + pokemon.height + ' cm');
+  var weightElement = $('.pokemonWeight').text('Weight:' + pokemon.weight + ' lbs');
   $modal.append(closeButtonElement);
   $modal.append(imgElement);
   $modal.append(nameElement);
   $modal.append(heightElement);
+  $modal.append(weightElement);
 
   $modalContainer.append($modal);
   $('body').append($modal);
-})
 };
 
 
