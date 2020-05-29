@@ -101,6 +101,8 @@ function hideModal(){
   $('.modal-container').removeClass('is-visible');
 }
 
+
+
   return {
     add: add,
     getAll: getAll,
@@ -110,6 +112,7 @@ function hideModal(){
     loadDetails: loadDetails,
     showModal: showModal,
     hideModal: hideModal
+
   }
 })();
 
