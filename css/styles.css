@@ -15,7 +15,7 @@
   width: 500px;
 }
 
-
+/*
 .closeButton {
   border: none;
   font-family: inherit;
@@ -33,14 +33,13 @@
   height: 50px;
 }
 
+*/
 .modal {
   position: fixed;
   display: grid;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.5);
-  padding: 0px;
-  top: 30%;
-  left: 40%;
+  padding: 0px; 
   width: 500px;
   height: 300px;
   color: #fff;

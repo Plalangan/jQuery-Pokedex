@@ -18,7 +18,7 @@ var pokemonRepository = (function (){
       showDetails(pokemon)
     });
 
-    var $button = $('<button class="button"></button>').text(pokemon.name);
+    var $button = $('<button class="btn-primary btn-lg btn-block"></button>').text(pokemon.name);
     $addListItem.append($button);
     $pokemonList.append($addListItem);
     $('body').append($pokemonList);
